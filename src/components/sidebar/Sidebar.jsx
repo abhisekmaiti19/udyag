@@ -6,7 +6,7 @@ export default function Sidebar() {
   const buttonDetails = [
     {
       text: "Home",
-      where: "",
+      where: " ",
     },
     {
       text: "Jobs",
