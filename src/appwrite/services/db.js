@@ -54,7 +54,7 @@ export class Service {
     try {
       return await this.databases.listDocuments(
         conf.databaseId,
-        conf.UserCollectionId
+        conf.JobsCollectionId
       );
     } catch (error) {
       console.log("Appwrite serive :: getAllJob :: error", error);

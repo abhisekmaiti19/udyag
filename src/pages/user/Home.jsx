@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-5 pb-14 ">
       <Hero />
-      <Courses />
       <Jobs />
+      <Courses />
     </div>
   );
 }
