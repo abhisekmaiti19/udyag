@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+#search::placeholder {
+  color: grey;
+}
+
+.upto {
+  transition: all;
+  transition-duration: 300ms;
+  transform: rotate(180deg);
+}
+
+.glossy {
+  animation: gloss 2s linear 2s infinite normal forwards;
+}
+
+@keyframes gloss {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(1000%);
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgb(227, 227, 227);
+  border-radius: 10px;
+}
+
+.alrtCrd {
+  animation: vanish-hi 500ms ease-in-out;
+  animation-delay: 2s;
+  animation-fill-mode: backwards;
+}
+@keyframes vanish-hi {
+  0% {
+    transform: translateX(0px);
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+    visibility: none;
+  }
+}
