@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import SidebarButton from "../sideBarButton/SidebarButton";
+import SidebarButton from "../sideBarButton/SidebarButton.jsx";
 import logo from "../../assets/logo.png";
 
 export default function Sidebar() {
