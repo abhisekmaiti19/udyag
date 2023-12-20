@@ -15,7 +15,7 @@ function CreateCourse() {
   const slector = useSelector((state) => state.auth.status);
   async function clickhandle() {
     if (slector) {
-      return await DB.createJob({
+      return await DB.createCourse({
         name,
         disable,
         courselink,
