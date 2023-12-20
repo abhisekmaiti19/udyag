@@ -42,7 +42,7 @@ export default function SignUp() {
     console.log("registration invoked - " + slector);
     if (slector != true) {
       console.log("registration checked invoked");
-      let data = await Auth.createAccount({ email, phone, password, name });
+      let data = await Auth.createAccount({ email, password, name, phone });
       console.log(data);
       dispatch(login(data));
       DB.createUser({ name, email, isAdmin, phone, disability });
@@ -52,17 +52,10 @@ export default function SignUp() {
     }
   }
 
-  function verifyData(
-    username,
-    useremail,
-    phone,
-    pass,
-    confirmpass,
-    disability
-  ) {
+  function verifyData(name, email, phone, pass, confirmpass, disability) {
     if (
-      username != "" &&
-      useremail.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/) &&
+      name != "" &&
+      email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/) &&
       pass.length > 8 &&
       pass === confirmpass &&
       phone.length <= 10 &&

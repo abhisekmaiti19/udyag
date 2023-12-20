@@ -1,18 +1,20 @@
 import { Smileys } from "iconsax-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import DB from "../../appwrite/services/db";
 export default function UpdatForms() {
   const [myData, setMyData] = useState("");
   const slector = useSelector((state) => state.auth.status);
 
-  if (slector) {
-    DB.getUser(JSON.parse(localStorage.user).phone.slice(3)).then((data) => {
-      if (data) {
-        setMyData(data);
-      }
-    });
-  }
+  useEffect(() => {
+    if (slector) {
+      DB.getUser(JSON.parse(localStorage.user).phone.slice(3)).then((data) => {
+        if (data) {
+          setMyData(data);
+        }
+      });
+    }
+  }, [slector]);
 
   //UPdate profile is pending
 

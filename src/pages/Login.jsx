@@ -13,6 +13,9 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// const[email, setEmail] = useState("")
+//   const [pass, setPass] = useState("")
+
 const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-white flex justify-center items-center">

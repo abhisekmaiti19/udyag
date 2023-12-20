@@ -1,6 +1,6 @@
 import { ProfileCircle, MagicStar } from "iconsax-react";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import DB from "../../appwrite/services/db";
 
@@ -8,13 +8,15 @@ export default function ProfileCard() {
   const [myData, setMyData] = useState("");
   const slector = useSelector((state) => state.auth.status);
 
-  if (slector) {
-    DB.getUser(JSON.parse(localStorage.user).phone.slice(3)).then((data) => {
-      if (data) {
-        setMyData(data);
-      }
-    });
-  }
+  useEffect(() => {
+    if (slector) {
+      DB.getUser(JSON.parse(localStorage.user).phone.slice(3)).then((data) => {
+        if (data) {
+          setMyData(data);
+        }
+      });
+    }
+  }, [slector]);
 
   return (
     <div className="w-full h-[35vh] rounded-xl border-2 border-slate-500 flex justify-between items-center gap-5 bg-gradient-to-br  from-brand-blue to-blue-900">
