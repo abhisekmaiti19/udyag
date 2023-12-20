@@ -3,16 +3,13 @@ import { More2, LocationTick, Moneys, ShieldTick } from "iconsax-react";
 // import { useState } from "react";
 // import Jobdetails from "../jobs/Jobdetails";
 
-export default function Job({ data, key, isreco }) {
+export default function Job({ data, isreco }) {
   // const [job, setJob] = useState(false);
   // const myskills = data.skills;
 
   return (
     <>
-      <div
-        id={key}
-        className=" p-2 h-fit relative rounded-xl border border-slate-300 w-fit text-blue-800 whitespace-break-spaces"
-      >
+      <div className=" p-2 h-fit relative rounded-xl border border-slate-300 w-fit text-blue-800 whitespace-break-spaces">
         <div className=" w-80 h-92 overflow-auto">
           <div className=" top-0 left-0 flex flex-col gap-5 p-5">
             {/* Employer Name  */}

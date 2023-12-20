@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import SidebarButton from "../sideBarButton/SidebarButton.jsx";
 import logo from "../../assets/logo.png";
+import { useEffect } from "react";
 
 export default function Sidebar() {
   const buttonDetails = [
@@ -21,6 +22,8 @@ export default function Sidebar() {
       where: `createjob`,
     },
   ];
+
+  useEffect(() => {}, []);
 
   return (
     <div className="right-0 h-screen w-fit px-10 py-5 flex flex-col gap-5 shadow-md shadow-blue-100">

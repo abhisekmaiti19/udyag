@@ -4,6 +4,7 @@ import Job from "../../components/cards/Job";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import DB from "../../appwrite/services/db";
+import { nanoid } from "nanoid";
 
 export default function JobsAllApp() {
   const { active } = useContext(navContext);
@@ -37,9 +38,11 @@ export default function JobsAllApp() {
             myData.map((item) => {
               // if (userData.disability != item.disability) {
               // console.log(item.$id);
+              let myid = nanoid();
+              // console.log(myid);
               return (
                 <Job
-                  key={item.id}
+                  key={myid}
                   data={item}
                   isreco={
                     userData.disability === item.disability ? true : false

@@ -2,6 +2,7 @@ import Job from "../cards/Job";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import DB from "../../appwrite/services/db";
+import { nanoid } from "nanoid";
 
 export default function Jobs() {
   const [myData, setMyData] = useState([]);
@@ -36,9 +37,10 @@ export default function Jobs() {
           <h1 className="text-xl font-bold text-slate-700">Recomended Jobs</h1>
           <div className="overflow-x-auto w-full gap-6 flex overflow-y-hidden">
             {myData.map((item) => {
+              let myid = nanoid();
               if (userData.disability === item.disability) {
                 // console.log(item.$id);
-                return <Job key={item.id} data={item} isreco={true} />;
+                return <Job key={myid} data={item} isreco={true} />;
               }
             })}
           </div>
