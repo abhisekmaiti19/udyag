@@ -34,7 +34,7 @@ export default function InnerNav() {
           setActive("app");
         }}
       >
-        Applied Jobs
+        Recomended Jobs
       </button>
     </div>
   );

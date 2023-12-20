@@ -33,7 +33,10 @@ export class AuthService {
   }
   async login({ email, password }) {
     try {
-      return await this.account.createEmailSession(email, password);
+      let myac = await this.account.createEmailSession(email, password);
+      if (myac) {
+        return await this.account.get();
+      }
     } catch (error) {
       throw error;
     }

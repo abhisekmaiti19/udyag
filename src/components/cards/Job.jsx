@@ -11,7 +11,7 @@ export default function Job({ data, key, isreco }) {
     <>
       <div
         id={key}
-        className=" p-2 relative rounded-xl border border-slate-300 w-fit text-blue-800 whitespace-break-spaces"
+        className=" p-2 h-fit relative rounded-xl border border-slate-300 w-fit text-blue-800 whitespace-break-spaces"
       >
         <div className=" w-80 h-92 overflow-auto">
           <div className=" top-0 left-0 flex flex-col gap-5 p-5">
