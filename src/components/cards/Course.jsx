@@ -22,12 +22,22 @@ export default function Course({ data }) {
         </div>
       </div>
       <div className="w-full flex flex-col">
-        <button className="p-5  font-black border-2 px-10 rounded-xl bg-brand-blue text-white shadow-sm m-5">
-          {data.courselink}
-        </button>
-        <button className="p-5  font-black border-2 border-black px-10 rounded-xl bg-brand-green text-black shadow-sm m-5">
-          {data.yourlink}
-        </button>
+        <a
+          className="p-5  font-black border-2 px-10 rounded-xl bg-brand-blue text-white shadow-sm m-5"
+          rel="noreferrer"
+          href={data.courselink ? data.courselink : ""}
+          target="_blank"
+        >
+          Course Link
+        </a>
+        <a
+          className="p-5  font-black border-2 border-black px-10 rounded-xl bg-brand-green text-black shadow-sm m-5"
+          rel="noreferrer"
+          href={data.yourlink ? data.yourlink : ""}
+          target="_blank"
+        >
+          More Info
+        </a>
       </div>
     </div>
   );
