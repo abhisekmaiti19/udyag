@@ -39,7 +39,7 @@ export default function JobsAllApp() {
               // if (userData.disability != item.disability) {
               // console.log(item.$id);
               let myid = nanoid();
-              // console.log(myid);
+              console.log(item.createdBy);
               return (
                 <Job
                   key={myid}
@@ -54,9 +54,10 @@ export default function JobsAllApp() {
             myData.map((item) => {
               if (userData.disability === item.disability) {
                 // console.log(item.$id);
+                let myid = nanoid();
                 return (
                   <Job
-                    key={item.id}
+                    key={myid}
                     data={item}
                     isreco={
                       userData.disability === item.disability ? true : false

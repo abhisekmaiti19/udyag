@@ -27,10 +27,12 @@ function CreateJob() {
   const [pack, setPack] = useState();
   const [disability, setDisability] = useState();
   const [skills, setSkills] = useState([]);
+  const [joblink, setJoblink] = useState("");
 
   const slector = useSelector((state) => state.auth.status);
   async function clickhandle() {
-    let createdBy = localStorage.user.name;
+    let createdBy = JSON.parse(localStorage.user).name;
+
     if (slector) {
       return await DB.createJob({
         createdBy,
@@ -39,6 +41,7 @@ function CreateJob() {
         pack,
         disability,
         skills,
+        joblink,
       });
     }
   }
@@ -106,13 +109,23 @@ function CreateJob() {
 
           <input
             type="text"
-            placeholder="Location"
+            placeholder="Job link"
+            value={joblink}
+            onChange={(e) => {
+              setJoblink(e.target.value);
+            }}
             className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
+          />
+          <input
+            type="text"
+            placeholder="Location"
+            className="border-2 border-black w-[230px] h-[60px] rounded-xl bg-slate-100 p-5"
             value={location}
             onChange={(e) => {
               setLocation(e.target.value);
             }}
           />
+
           <button
             type="text"
             placeholder="What is the position"

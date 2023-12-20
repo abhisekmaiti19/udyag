@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { More2, LocationTick, Moneys, ShieldTick } from "iconsax-react";
+import { nanoid } from "nanoid";
 // import { useState } from "react";
 // import Jobdetails from "../jobs/Jobdetails";
 
@@ -15,17 +16,25 @@ export default function Job({ data, isreco }) {
             {/* Employer Name  */}
             <div className="flex justify-between">
               <h1 className="font-semibold w-1/2 overflow-hidden text-ellipsis whitespace-break-spaces">
-                {data.createdBy != null ? data.createdBy : "Udyog Sarthi"}
+                {data.createdBy}
               </h1>
-              <button
-                className="flex border-2  w-fit h-fit rounded items-center p-1 px-2 gap-2 hover:cursor-pointer hover:opacity-50"
+              <a
+                className={`flex border-2 ${
+                  data.joblink === null ? " opacity-50 " : ""
+                }  w-fit h-fit rounded items-center p-1 px-2 gap-2 hover:cursor-pointer hover:opacity-50`}
                 // onClick={() => {
                 //   setJob(true);
                 // }}
+
+                rel="noreferrer"
+                href={`${data.joblink === null ? `` : data.joblink}`}
+                target={data.joblink === null ? "_self" : "_blank"}
               >
                 <More2 variant="Bulk" />
-                <h1 className="text-sm h-fit">More Info</h1>
-              </button>
+                <h1 className="text-sm h-fit">
+                  {data.joblink === null ? "No Info" : "More Info"}
+                </h1>
+              </a>
             </div>
             {/* Location and Money  */}
             <div className="flex  gap-5">
@@ -53,21 +62,30 @@ export default function Job({ data, isreco }) {
             </div>
             {/* Prfered Skills  */}
             <div className="flex flex-col gap-2">
+              <h1 className="text-[13px] text-slate-500 f">ELIGIBILITY</h1>
               <h1 className="text-xs text-slate-800 w-fit font-semibold bg-slate-600/10 rounded-xl px-2 py-1 ">
                 {data.disability != null
                   ? `Job for ${data.disability} user`
                   : "this is for all"}
               </h1>
 
-              <div className="flex gap-2">
-                {/* {myskills.map((item) => (
-                  <h1
-                    key={item}
-                    className="text-xs text-slate-800 w-fit font-semibold bg-slate-600/10 rounded-xl px-2 py-1 "
-                  >
-                    {item}
+              <h1 className="text-[13px] text-slate-500 f">SKILLS</h1>
+              <div className=" gap-2 flex flex-col">
+                {data.skills.lenght >= 0 ? (
+                  data.skills.map((item) => {
+                    let myid = nanoid();
+                    <h1
+                      id={myid}
+                      className="text-xs text-slate-800 w-fit font-semibold bg-slate-600/10 rounded-xl px-2 py-1 "
+                    >
+                      {item}
+                    </h1>;
+                  })
+                ) : (
+                  <h1 className="text-xs text-slate-800 w-fit font-semibold bg-slate-600/10 rounded-xl px-2 py-1 ">
+                    No skill required
                   </h1>
-                ))} */}
+                )}
               </div>
             </div>
             {/* Eligble or not  */}

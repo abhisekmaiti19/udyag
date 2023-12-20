@@ -30,7 +30,15 @@ export class Service {
     }
   }
 
-  async createJob({ createdBy, pos, location, pack, disability, skills }) {
+  async createJob({
+    createdBy,
+    pos,
+    location,
+    pack,
+    disability,
+    skills,
+    joblink,
+  }) {
     try {
       return await this.databases.createDocument(
         conf.databaseId,
@@ -43,6 +51,7 @@ export class Service {
           pack,
           disability,
           skills,
+          joblink,
         }
       );
     } catch (error) {
