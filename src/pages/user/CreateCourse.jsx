@@ -45,7 +45,7 @@ function CreateCourse() {
       <div className="w-full h-full border-2 border-black flex flex-col gap-10 items-center">
         <div className="w-full h-fit flex justify-center items-center">
           <h1 className="font-black text-3xl bg-gradient-to-br from-brand-green  to-green-500 border-2 border-black p-5 rounded text-slate-700 shadow-xl">
-            Create a Job
+            Create a Course
           </h1>
         </div>
         <div className="flex flex-wrap gap-5 items-center justify-center">
