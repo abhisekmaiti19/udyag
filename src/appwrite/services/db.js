@@ -38,6 +38,7 @@ export class Service {
     disability,
     skills,
     joblink,
+    date,
   }) {
     try {
       return await this.databases.createDocument(
@@ -52,6 +53,7 @@ export class Service {
           disability,
           skills,
           joblink,
+          date,
         }
       );
     } catch (error) {

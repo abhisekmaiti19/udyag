@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { More2, LocationTick, Moneys, ShieldTick } from "iconsax-react";
+import { More2, LocationTick, Moneys, ShieldTick, Timer } from "iconsax-react";
 import { nanoid } from "nanoid";
 // import { useState } from "react";
 // import Jobdetails from "../jobs/Jobdetails";
@@ -43,6 +43,12 @@ export default function Job({ data, isreco }) {
                 <LocationTick size="15" variant="Bold" color="red" />
                 <h1 className="overflow-hidden text-ellipsis">
                   {data.location.length != 0 ? data.location : "WFH"}
+                </h1>
+              </div>
+              <div className="flex gap-2 w-fit items-center rounded-xl text-sm font-bold text-yellow-800">
+                <Timer size="15" variant="Bold" color="orange" />
+                <h1 className="overflow-hidden text-ellipsis">
+                  {data.date != null ? data.date : "No expire"}
                 </h1>
               </div>
               {/* Money  */}

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
-import { Home, Briefcase, Play, BrushSquare } from "iconsax-react";
+import { Home, Briefcase, Play, BrushSquare, Magicpen } from "iconsax-react";
 export default function SidebarButton({ buttontext, where }) {
   const icon =
     buttontext == "Home" ? (
@@ -11,6 +11,8 @@ export default function SidebarButton({ buttontext, where }) {
       <Play variant="Bold" size="25px" />
     ) : buttontext == "Create" ? (
       <BrushSquare variant="Bold" size="25px" />
+    ) : buttontext == "Create Course" ? (
+      <Magicpen variant="Bold" size="25px" />
     ) : (
       <></>
     );
@@ -20,7 +22,7 @@ export default function SidebarButton({ buttontext, where }) {
         className={({ isActive }) =>
           `flex gap-4 py-2 px-4  pr-12 rounded duration-300 ease-in-out ${
             isActive ? "text-white bg-brand-blue" : "text-slate-700"
-          }`
+          } items-center`
         }
         to={where}
         end

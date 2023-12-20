@@ -38,10 +38,16 @@ export default function Sidebar() {
   ];
 
   if (userData === true) {
-    buttonDetails.push({
-      text: "Create",
-      where: "createjob",
-    });
+    buttonDetails.push(
+      {
+        text: "Create",
+        where: "createjob",
+      },
+      {
+        text: "Create Course",
+        where: "",
+      }
+    );
   }
 
   return (

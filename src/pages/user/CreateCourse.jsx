@@ -5,30 +5,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DB from "../../appwrite/services/db";
 
-const mydis = [
-  "What type of disability you have",
-  "Blindness",
-  "leprosy",
-  "hearing",
-  "locomotor",
-  "dwarfism",
-  "intellectual",
-  "mental",
-  "autism",
-  "spectrum",
-  "cerebral",
-  "dyslexia",
-];
-
-function CreateJob() {
+function CreateCourse() {
   const navigate = useNavigate();
   const [pos, setPos] = useState();
   const [location, setLocation] = useState();
-  const [pack, setPack] = useState();
+  //   const [pack, setPack] = useState();
   const [disability, setDisability] = useState();
-  const [skills, setSkills] = useState([]);
+  //   const [skills, setSkills] = useState([]);
   const [joblink, setJoblink] = useState("");
-  const [date, setDate] = useState("0000-0-00");
 
   const slector = useSelector((state) => state.auth.status);
   async function clickhandle() {
@@ -43,46 +27,42 @@ function CreateJob() {
         disability,
         skills,
         joblink,
-        date,
       });
     }
   }
+
+  const mydis = [
+    "What type of disability you have",
+    "Blindness",
+    "leprosy",
+    "hearing",
+    "locomotor",
+    "dwarfism",
+    "intellectual",
+    "mental",
+    "autism",
+    "spectrum",
+    "cerebral",
+    "dyslexia",
+  ];
 
   return (
     <>
       <ToastContainer />
       <div className="w-full h-full border-2 border-black flex flex-col gap-10 items-center">
         <div className="w-full h-fit flex justify-center items-center">
-          <h1 className="font-black text-3xl bg-gradient-to-br from-brand-blue to-blue-500 p-5 rounded text-white shadow-xl">
+          <h1 className="font-black text-3xl bg-gradient-to-br from-brand-green  to-green-500 border-2 border-black p-5 rounded text-slate-700 shadow-xl">
             Create a Job
           </h1>
         </div>
         <div className="flex flex-wrap gap-5 items-center justify-center">
           <input
             type="text"
-            placeholder="What is the position"
+            placeholder="Course Name"
             className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
             value={pos}
             onChange={(e) => {
               setPos(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="What will be the CTC"
-            className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
-            value={pack}
-            onChange={(e) => {
-              setPack(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Required skills"
-            className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
-            value={skills}
-            onChange={(e) => {
-              setSkills(e.target.value.split(","));
             }}
           />
 
@@ -117,14 +97,6 @@ function CreateJob() {
               setJoblink(e.target.value);
             }}
             className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
-          />
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => {
-              setDate(e.target.value);
-            }}
-            className="border-2 border-black w-[180px] h-[60px] rounded-xl bg-slate-100 p-5"
           />
           <input
             type="text"
@@ -171,4 +143,4 @@ function CreateJob() {
   );
 }
 
-export default CreateJob;
+export default CreateCourse;
