@@ -61,11 +61,40 @@ export class Service {
     }
   }
 
+  async createCourse({ name, disable, courselink, yourlink }) {
+    try {
+      return await this.databases.createDocument(
+        conf.databaseId,
+        conf.CourseCollectionId,
+        ID.unique(),
+        {
+          name,
+          disable,
+          courselink,
+          yourlink,
+        }
+      );
+    } catch (error) {
+      console.log("Appwrite serive :: createJob :: error", error);
+    }
+  }
+
   async getAllJob() {
     try {
       return await this.databases.listDocuments(
         conf.databaseId,
         conf.JobsCollectionId
+      );
+    } catch (error) {
+      console.log("Appwrite serive :: getAllJob :: error", error);
+    }
+  }
+
+  async getAllCourse() {
+    try {
+      return await this.databases.listDocuments(
+        conf.databaseId,
+        conf.CourseCollectionId
       );
     } catch (error) {
       console.log("Appwrite serive :: getAllJob :: error", error);

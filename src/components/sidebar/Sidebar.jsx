@@ -31,9 +31,14 @@ export default function Sidebar() {
       text: "Jobs",
       where: `jobs`,
     },
+
     {
       text: "Courses",
       where: `courses`,
+    },
+    {
+      text: "All Course",
+      where: `allcourse`,
     },
   ];
 
@@ -45,7 +50,7 @@ export default function Sidebar() {
       },
       {
         text: "Create Course",
-        where: "",
+        where: "createcourse",
       }
     );
   }

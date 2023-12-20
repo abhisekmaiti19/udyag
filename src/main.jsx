@@ -21,6 +21,7 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 import CreateJob from "./pages/user/CreateJob.jsx";
 import CreateCourse from "./pages/user/CreateCourse.jsx";
+import AllCourse from "./pages/user/AllCourse.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
         <Route path="create" element={<CreateAdmin />} />
         <Route path="createjob" element={<CreateJob />} />
         <Route path="createcourse" element={<CreateCourse />} />
+        <Route path="allcourse" element={<AllCourse />} />
       </Route>
     </Route>
   )

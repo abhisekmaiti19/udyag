@@ -7,32 +7,25 @@ import DB from "../../appwrite/services/db";
 
 function CreateCourse() {
   const navigate = useNavigate();
-  const [pos, setPos] = useState();
-  const [location, setLocation] = useState();
-  //   const [pack, setPack] = useState();
-  const [disability, setDisability] = useState();
-  //   const [skills, setSkills] = useState([]);
-  const [joblink, setJoblink] = useState("");
+  const [name, setName] = useState();
+  const [disable, setDisable] = useState();
+  const [courselink, setCourselink] = useState();
+  const [yourlink, setYourlink] = useState("");
 
   const slector = useSelector((state) => state.auth.status);
   async function clickhandle() {
-    let createdBy = JSON.parse(localStorage.user).name;
-
     if (slector) {
       return await DB.createJob({
-        createdBy,
-        pos,
-        location,
-        pack,
-        disability,
-        skills,
-        joblink,
+        name,
+        disable,
+        courselink,
+        yourlink,
       });
     }
   }
 
   const mydis = [
-    "What type of disability you have",
+    "Course for disable user ?",
     "Blindness",
     "leprosy",
     "hearing",
@@ -60,9 +53,9 @@ function CreateCourse() {
             type="text"
             placeholder="Course Name"
             className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
-            value={pos}
+            value={name}
             onChange={(e) => {
-              setPos(e.target.value);
+              setName(e.target.value);
             }}
           />
 
@@ -71,13 +64,13 @@ function CreateCourse() {
             name="disability_tag"
             placeholder="What type of disability you have"
             className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-2 pl-5"
-            value={disability}
+            value={disable}
             onChange={(e) => {
-              setDisability(e.target.value);
+              setDisable(e.target.value);
             }}
           >
             {mydis.map((item) =>
-              item === "What type of disability you have" ? (
+              item === "Course for disable user ?" ? (
                 <option key={item} value={null}>
                   {item}
                 </option>
@@ -91,20 +84,20 @@ function CreateCourse() {
 
           <input
             type="text"
-            placeholder="Job link"
-            value={joblink}
+            placeholder="Course Link"
+            value={courselink}
             onChange={(e) => {
-              setJoblink(e.target.value);
+              setCourselink(e.target.value);
             }}
             className="border-2 border-black w-[500px] h-[60px] rounded-xl bg-slate-100 p-5"
           />
           <input
             type="text"
-            placeholder="Location"
+            placeholder="your link"
             className="border-2 border-black w-[230px] h-[60px] rounded-xl bg-slate-100 p-5"
-            value={location}
+            value={yourlink}
             onChange={(e) => {
-              setLocation(e.target.value);
+              setYourlink(e.target.value);
             }}
           />
 
@@ -123,7 +116,7 @@ function CreateCourse() {
                 success: {
                   render() {
                     navigate("");
-                    return "Succefully created";
+                    return "Succefully created Course";
                   },
                 },
                 error: {
